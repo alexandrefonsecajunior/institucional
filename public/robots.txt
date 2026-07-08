@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://afjsistemas.com.br/sitemap.xml
