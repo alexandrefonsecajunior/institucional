@@ -20,6 +20,27 @@ const Projects = () => {
       url: 'https://eg-pisos-landing-page.vercel.app/',
       description: t('projects.tabs.egPisos.description'),
       technologies: ['React', 'Tailwind CSS', 'Vercel', 'Responsive Design']
+    },
+    {
+      id: 'athly',
+      name: t('projects.tabs.athly.name'),
+      url: 'https://athlyproject.app/',
+      description: t('projects.tabs.athly.description'),
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel']
+    },
+    {
+      id: 'eng-glass',
+      name: t('projects.tabs.engGlass.name'),
+      url: 'https://www.engglass.com.br/',
+      description: t('projects.tabs.engGlass.description'),
+      technologies: ['React', 'Tailwind CSS', 'Responsive Design', 'SEO']
+    },
+    {
+      id: 'fontec',
+      name: t('projects.tabs.fontec.name'),
+      url: 'https://www.fontec-eletricas.com.br/',
+      description: t('projects.tabs.fontec.description'),
+      technologies: ['React', 'Tailwind CSS', 'Responsive Design', 'SEO']
     }
   ]
 

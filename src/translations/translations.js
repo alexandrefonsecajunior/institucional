@@ -105,6 +105,21 @@ export const translations = {
           description:
             "Landing page de Portfólio para a empresa EG Pisos Epoxi.",
         },
+        athly: {
+          name: "Athly Project",
+          description:
+            "Site institucional e página pública do produto Athly Runner.",
+        },
+        engGlass: {
+          name: "Eng Glass",
+          description:
+            "Landing page institucional para empresa especializada em soluções em vidro.",
+        },
+        fontec: {
+          name: "Fontec Elétricas",
+          description:
+            "Landing page institucional para empresa de soluções e serviços elétricos.",
+        },
       },
     },
 
@@ -236,6 +251,21 @@ export const translations = {
         egPisos: {
           name: "EG Pisos Epoxi",
           description: "Portfolio landing page for EG Pisos Epoxi company.",
+        },
+        athly: {
+          name: "Athly Project",
+          description:
+            "Institutional website and public page for the Athly Runner product.",
+        },
+        engGlass: {
+          name: "Eng Glass",
+          description:
+            "Institutional landing page for a company specialized in glass solutions.",
+        },
+        fontec: {
+          name: "Fontec Elétricas",
+          description:
+            "Institutional landing page for an electrical services and solutions company.",
         },
       },
     },

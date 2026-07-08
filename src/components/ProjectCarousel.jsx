@@ -10,7 +10,10 @@ const ProjectCarousel = ({ projects }) => {
 
   const projectScreenshots = {
     'da-elite-express': '/assets/screenshots/da-elite-express.png',
-    'eg-pisos-epoxi': '/assets/screenshots/eg-pisos-epoxi.png'
+    'eg-pisos-epoxi': '/assets/screenshots/eg-pisos-epoxi.png',
+    athly: '/assets/screenshots/athly.png',
+    'eng-glass': '/assets/screenshots/eng-glass.png',
+    fontec: '/assets/screenshots/fontec.png',
   }
 
   return (
