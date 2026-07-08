@@ -26,26 +26,38 @@ gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   useEffect(() => {
+    const anchorCleanups = []
+
     // Initialize smooth scrolling
     const initSmoothScroll = () => {
       const links = document.querySelectorAll('a[href^="#"]')
       links.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault()
-          const targetId = link.getAttribute('href').substring(1)
+        const handleAnchorClick = (e) => {
+          const href = link.getAttribute('href')
+          const targetId = href?.substring(1)
+
+          if (!targetId) return
+
           const targetElement = document.getElementById(targetId)
-          
-          if (targetElement) {
-            gsap.to(window, {
-              duration: 1.5,
-              scrollTo: {
-                y: targetElement,
-                offsetY: 80
-              },
-              ease: 'power3.inOut'
-            })
+
+          if (!targetElement) return
+
+          e.preventDefault()
+
+          const targetTop = targetElement.getBoundingClientRect().top + window.scrollY - 80
+
+          window.scrollTo({
+            top: Math.max(targetTop, 0),
+            behavior: 'smooth',
+          })
+
+          if (window.location.hash !== href) {
+            window.history.pushState(null, '', href)
           }
-        })
+        }
+
+        link.addEventListener('click', handleAnchorClick)
+        anchorCleanups.push(() => link.removeEventListener('click', handleAnchorClick))
       })
     }
 
@@ -73,10 +85,12 @@ function App() {
     })
 
     // Initialize after DOM is ready
-    setTimeout(initSmoothScroll, 100)
+    const smoothScrollTimeout = setTimeout(initSmoothScroll, 100)
 
     // Cleanup
     return () => {
+      clearTimeout(smoothScrollTimeout)
+      anchorCleanups.forEach(cleanup => cleanup())
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])

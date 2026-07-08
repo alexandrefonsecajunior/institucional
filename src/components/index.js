@@ -21,6 +21,7 @@ export { default as PulseRotateSVG } from "./PulseRotateSVG";
 export { default as GSAPAnimatedSVG } from "./GSAPAnimatedSVG";
 export { default as LoadingSVG } from "./LoadingSVG";
 export { default as LightRays } from "./effects/LightRays";
+export { default as AFJLogoRays } from "./effects/AFJLogoRays";
 
 // GSAP Advanced Effects
 export { default as ParticleField } from "./effects/ParticleField";
