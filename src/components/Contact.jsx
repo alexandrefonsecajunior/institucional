@@ -31,11 +31,11 @@ const Contact = () => {
                 <span className="text-sm uppercase tracking-[0.18em] text-accent">Email</span>
                 <span className="break-all">{companyInfo.contactEmail}</span>
               </a>
-              <a href="https://linkedin.com/in/alexandredafonseca" className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-text-light p-4 bg-accent-dark border border-border-color hover:border-accent/50 hover:text-accent transition-all duration-300">
+              <a href="https://www.linkedin.com/in/alexandre-da-fonseca-junior-82477a1b5/" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-text-light p-4 bg-accent-dark border border-border-color hover:border-accent/50 hover:text-accent transition-all duration-300">
                 <span className="text-sm uppercase tracking-[0.18em] text-accent">LinkedIn</span>
                 <span>LinkedIn</span>
               </a>
-              <a href="https://github.com/alexandredafonseca" className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-text-light p-4 bg-accent-dark border border-border-color hover:border-accent/50 hover:text-accent transition-all duration-300">
+              <a href="https://github.com/alexandrefonsecajunior" target="_blank" rel="noopener noreferrer" className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-text-light p-4 bg-accent-dark border border-border-color hover:border-accent/50 hover:text-accent transition-all duration-300">
                 <span className="text-sm uppercase tracking-[0.18em] text-accent">GitHub</span>
                 <span>GitHub</span>
               </a>

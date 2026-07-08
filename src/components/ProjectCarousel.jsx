@@ -1,10 +1,73 @@
+import { useCallback, useEffect, useRef, useState } from 'react'
+
 const ProjectCarousel = ({ projects }) => {
+  const scrollRef = useRef(null)
+  const [scrollState, setScrollState] = useState({
+    canScrollPrev: false,
+    canScrollNext: false,
+  })
+
   const projectScreenshots = {
     'da-elite-express': '/assets/screenshots/da-elite-express.jpg',
     'eg-pisos-epoxi': '/assets/screenshots/eg-pisos-epoxi.jpg',
     athly: '/assets/screenshots/athly.jpg',
     'eng-glass': '/assets/screenshots/eng-glass.jpg',
     fontec: '/assets/screenshots/fontec.jpg',
+  }
+
+  const updateScrollState = useCallback(() => {
+    const scrollElement = scrollRef.current
+
+    if (!scrollElement) return
+
+    const tolerance = 4
+    const maxScrollLeft = scrollElement.scrollWidth - scrollElement.clientWidth
+    const nextState = {
+      canScrollPrev: scrollElement.scrollLeft > tolerance,
+      canScrollNext: scrollElement.scrollLeft < maxScrollLeft - tolerance,
+    }
+
+    setScrollState((currentState) => {
+      if (
+        currentState.canScrollPrev === nextState.canScrollPrev &&
+        currentState.canScrollNext === nextState.canScrollNext
+      ) {
+        return currentState
+      }
+
+      return nextState
+    })
+  }, [])
+
+  useEffect(() => {
+    updateScrollState()
+
+    const scrollElement = scrollRef.current
+    if (!scrollElement) return
+
+    scrollElement.addEventListener('scroll', updateScrollState, { passive: true })
+    window.addEventListener('resize', updateScrollState)
+
+    return () => {
+      scrollElement.removeEventListener('scroll', updateScrollState)
+      window.removeEventListener('resize', updateScrollState)
+    }
+  }, [projects.length, updateScrollState])
+
+  const scrollProjects = (direction) => {
+    const scrollElement = scrollRef.current
+
+    if (!scrollElement) return
+
+    const firstCard = scrollElement.querySelector('[data-project-card]')
+    const styles = window.getComputedStyle(scrollElement)
+    const gap = parseFloat(styles.columnGap || styles.gap) || 24
+    const cardWidth = firstCard?.getBoundingClientRect().width || scrollElement.clientWidth * 0.8
+
+    scrollElement.scrollBy({
+      left: direction * (cardWidth + gap),
+      behavior: 'smooth',
+    })
   }
 
   const ProjectCard = ({ project }) => (
@@ -80,15 +143,48 @@ const ProjectCarousel = ({ projects }) => {
 
   return (
     <div className="project-carousel w-full max-w-7xl mx-auto">
-      <div className="project-scroll -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-4 sm:-mx-6 sm:gap-6 sm:px-6 lg:mx-0 lg:px-0">
+      <div className="mb-5 hidden md:flex justify-end gap-3">
+        <button
+          type="button"
+          aria-label="Projeto anterior"
+          onClick={() => scrollProjects(-1)}
+          disabled={!scrollState.canScrollPrev}
+          className="flex h-11 w-11 items-center justify-center border border-border-color bg-accent-dark text-text-light transition-all duration-300 hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border-color disabled:hover:text-text-light"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M15 18L9 12L15 6" />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          aria-label="Proximo projeto"
+          onClick={() => scrollProjects(1)}
+          disabled={!scrollState.canScrollNext}
+          className="flex h-11 w-11 items-center justify-center border border-border-color bg-accent-dark text-text-light transition-all duration-300 hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border-color disabled:hover:text-text-light"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 18L15 12L9 6" />
+          </svg>
+        </button>
+      </div>
+
+      <div
+        ref={scrollRef}
+        className="project-scroll -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-4 sm:-mx-6 sm:gap-6 sm:px-6 lg:mx-0 lg:px-0"
+      >
         {projects.map((project) => (
-          <article key={project.id} className="w-[82vw] max-w-xs shrink-0 snap-center sm:w-[22rem] sm:max-w-none lg:w-80">
+          <article
+            key={project.id}
+            data-project-card
+            className="w-[82vw] max-w-xs shrink-0 snap-center sm:w-[22rem] sm:max-w-none lg:w-80"
+          >
             <ProjectCard project={project} />
           </article>
         ))}
       </div>
 
-      <p className="mt-2 text-center text-xs text-text-gray">
+      <p className="mt-2 text-center text-xs text-text-gray md:hidden">
         Deslize para ver mais projetos.
       </p>
     </div>
