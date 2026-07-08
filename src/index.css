@@ -1,4 +1,4 @@
-@import './styles/swiper-custom.css';
+@import './styles/project-carousel.css';
 
 @tailwind base;
 @tailwind components;
@@ -301,4 +301,4 @@
     opacity: 0;
     transform: translateX(150%) translateY(-100%);
   }
-} 
+}

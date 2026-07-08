@@ -1,18 +1,10 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, EffectCoverflow, Autoplay } from 'swiper/modules'
-
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/effect-coverflow'
-
 const ProjectCarousel = ({ projects }) => {
   const projectScreenshots = {
-    'da-elite-express': '/assets/screenshots/da-elite-express.png',
-    'eg-pisos-epoxi': '/assets/screenshots/eg-pisos-epoxi.png',
-    athly: '/assets/screenshots/athly.png',
-    'eng-glass': '/assets/screenshots/eng-glass.png',
-    fontec: '/assets/screenshots/fontec.png',
+    'da-elite-express': '/assets/screenshots/da-elite-express.jpg',
+    'eg-pisos-epoxi': '/assets/screenshots/eg-pisos-epoxi.jpg',
+    athly: '/assets/screenshots/athly.jpg',
+    'eng-glass': '/assets/screenshots/eng-glass.jpg',
+    fontec: '/assets/screenshots/fontec.jpg',
   }
 
   const ProjectCard = ({ project }) => (
@@ -22,6 +14,10 @@ const ProjectCarousel = ({ projects }) => {
           <img
             src={projectScreenshots[project.id]}
             alt={`Screenshot do ${project.name}`}
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="675"
             className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
           />
         ) : (
@@ -84,64 +80,17 @@ const ProjectCarousel = ({ projects }) => {
 
   return (
     <div className="project-carousel w-full max-w-7xl mx-auto">
-      <div className="md:hidden">
-        <div className="project-mobile-scroll -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-4">
-          {projects.map((project) => (
-            <article key={project.id} className="w-[82vw] max-w-xs shrink-0 snap-center">
-              <ProjectCard project={project} />
-            </article>
-          ))}
-        </div>
-        <p className="mt-2 text-center text-xs text-text-gray">
-          Deslize para ver mais projetos.
-        </p>
+      <div className="project-scroll -mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-4 sm:-mx-6 sm:gap-6 sm:px-6 lg:mx-0 lg:px-0">
+        {projects.map((project) => (
+          <article key={project.id} className="w-[82vw] max-w-xs shrink-0 snap-center sm:w-[22rem] sm:max-w-none lg:w-80">
+            <ProjectCard project={project} />
+          </article>
+        ))}
       </div>
 
-      <Swiper
-        effect="coverflow"
-        grabCursor={true}
-        centeredSlides={false}
-        slidesPerView={1}
-        spaceBetween={16}
-        coverflowEffect={{
-          rotate: 15,
-          stretch: 0,
-          depth: 200,
-          modifier: 1.5,
-          slideShadows: false,
-        }}
-        pagination={{
-          clickable: true,
-          dynamicBullets: true,
-        }}
-        navigation={true}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-        className="modern-project-swiper hidden md:block"
-        breakpoints={{
-          768: {
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            spaceBetween: 30,
-            effect: 'coverflow',
-          },
-          1024: {
-            slidesPerView: 'auto',
-            centeredSlides: true,
-            spaceBetween: 40,
-            effect: 'coverflow',
-          },
-        }}
-      >
-        {projects.map((project) => (
-          <SwiperSlide key={project.id} className="!w-[22rem] lg:!w-80">
-            <ProjectCard project={project} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <p className="mt-2 text-center text-xs text-text-gray">
+        Deslize para ver mais projetos.
+      </p>
     </div>
   )
 }

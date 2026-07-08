@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
   Navbar,
   Hero,
@@ -11,17 +9,6 @@ import {
   Contact,
   Footer
 } from './components'
-
-// GSAP Training
-import TrainingGround from './components/gsap-training/TrainingGround'
-
-// Advanced effects
-import LightRays from './components/effects/LightRays'
-import ParticleField from './components/effects/ParticleField'
-import EnergyScanner from './components/effects/EnergyScanner'
-
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   useEffect(() => {
@@ -60,29 +47,6 @@ function App() {
       })
     }
 
-    // Section fade-in animations
-    const sections = document.querySelectorAll('section')
-    sections.forEach((section) => {
-      gsap.fromTo(section, 
-        { 
-          opacity: 0,
-          y: 50
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-          }
-        }
-      )
-    })
-
     // Initialize after DOM is ready
     const smoothScrollTimeout = setTimeout(initSmoothScroll, 100)
 
@@ -90,24 +54,11 @@ function App() {
     return () => {
       clearTimeout(smoothScrollTimeout)
       anchorCleanups.forEach(cleanup => cleanup())
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
   }, [])
 
-  // Check if we should show training ground
-  const showTraining = window.location.hash === '#training' || window.location.search.includes('training=true')
-
-  if (showTraining) {
-    return <TrainingGround />
-  }
-
   return (
     <div className="relative min-h-screen bg-gray-900 text-white overflow-x-hidden">
-      {/* Advanced Effects Layer */}
-      <LightRays />
-      <ParticleField />
-      <EnergyScanner />
-      
       {/* Main Content */}
       <Navbar />
       

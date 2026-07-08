@@ -2,8 +2,11 @@
 
 Esta pasta contém os screenshots dos projetos do portfólio. Os arquivos esperados são:
 
-- `da-elite-desktop.png` - Screenshot do site Da Elite Express
-- `eg-pisos-desktop.png` - Screenshot do site EG Pisos Epoxi
+- `da-elite-express.jpg` - Screenshot do site Da Elite Express
+- `eg-pisos-epoxi.jpg` - Screenshot do site EG Pisos Epoxi
+- `athly.jpg` - Screenshot do site Athly
+- `eng-glass.jpg` - Screenshot do site Eng Glass
+- `fontec.jpg` - Screenshot do site Fontec Elétricas
 
 ## Como obter screenshots de qualidade
 
@@ -15,7 +18,7 @@ Esta pasta contém os screenshots dos projetos do portfólio. Os arquivos espera
 - Exemplo de uso:
 
 ```
-https://api.screenshot-one.com/take?access_key=YOUR_KEY&url=https://www.daeliteexpress.com.br/&viewport_width=1200&viewport_height=800&device_scale_factor=2&format=png&block_ads=true&block_cookie_banners=true
+https://api.screenshot-one.com/take?access_key=YOUR_KEY&url=https://www.daeliteexpress.com.br/&viewport_width=1200&viewport_height=800&device_scale_factor=1&format=jpg&image_quality=75&block_ads=true&block_cookie_banners=true
 ```
 
 ### 2. **Website Screenshot API**
@@ -40,7 +43,7 @@ const puppeteer = require("puppeteer");
   const page = await browser.newPage();
   await page.setViewport({ width: 1200, height: 800 });
   await page.goto("https://www.daeliteexpress.com.br/");
-  await page.screenshot({ path: "da-elite-desktop.png" });
+  await page.screenshot({ path: "da-elite-express.jpg", type: "jpeg", quality: 75 });
   await browser.close();
 })();
 ```
@@ -55,10 +58,10 @@ const puppeteer = require("puppeteer");
 
 ## Especificações Recomendadas
 
-- **Resolução**: 1200x800px ou maior
-- **Formato**: PNG para melhor qualidade
+- **Resolução**: 1200px de largura máxima
+- **Formato**: JPG com qualidade entre 70 e 80
 - **Aspecto**: Formato "card" (mais alto que largo)
-- **Qualidade**: Alta resolução para dispositivos Retina
+- **Peso alvo**: até 200 KB por screenshot
 
 ## Dicas para melhores screenshots
 
