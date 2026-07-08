@@ -30,14 +30,14 @@ const AboutMe = () => {
                 <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-30 transition-opacity duration-500">
                   <AnimatedSVG size={40} delay={0} />
                 </div>
-                <span className="block text-4xl font-bold text-accent mb-2">3+</span>
+                <span className="block text-4xl font-bold text-accent mb-2">6</span>
                 <span className="text-text-gray text-sm">{t('about.stats.experience')}</span>
               </div>
               <div className="animate-on-scroll text-center p-6 bg-accent-dark border border-border-color hover:border-accent/50 transition-all duration-300 relative group">
                 <div className="absolute -top-3 -right-3 opacity-0 group-hover:opacity-30 transition-opacity duration-500">
                   <AnimatedSVG size={40} delay={0.3} />
                 </div>
-                <span className="block text-4xl font-bold text-accent mb-2">50+</span>
+                <span className="block text-4xl font-bold text-accent mb-2">20+</span>
                 <span className="text-text-gray text-sm">{t('about.stats.projects')}</span>
               </div>
               <div className="animate-on-scroll text-center p-6 bg-accent-dark border border-border-color hover:border-accent/50 transition-all duration-300 relative group">
