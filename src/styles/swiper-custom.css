@@ -5,6 +5,15 @@
   padding: 40px 0 64px;
 }
 
+.project-mobile-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-mobile-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* Swiper Navigation - Site Theme */
 .swiper-button-next,
 .swiper-button-prev {
