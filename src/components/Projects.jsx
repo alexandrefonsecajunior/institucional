@@ -2,7 +2,6 @@ import React from 'react'
 import { useTranslation } from '../hooks/useTranslation'
 import ProjectCarousel from './ProjectCarousel'
 import PulseRotateSVG from './PulseRotateSVG'
-import GSAPAnimatedSVG from './GSAPAnimatedSVG'
 
 const Projects = () => {
   const { t } = useTranslation()
@@ -46,10 +45,6 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
           <div className="animate-on-scroll bg-accent-dark border border-border-color hover:border-accent/50 transition-all duration-300 relative group overflow-hidden">
             <div className="h-32 bg-dark-bg border-b border-border-color flex items-center justify-center relative">
-              {/* GSAP SVG no fundo do card */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700">
-                <GSAPAnimatedSVG size={120} delay={0.5} />
-              </div>
               <div className="text-2xl text-accent font-bold relative z-10">01</div>
             </div>
             <div className="p-6">
@@ -71,9 +66,6 @@ const Projects = () => {
           
           <div className="animate-on-scroll bg-accent-dark border border-border-color hover:border-accent/50 transition-all duration-300 relative group overflow-hidden">
             <div className="h-32 bg-dark-bg border-b border-border-color flex items-center justify-center relative">
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700">
-                <GSAPAnimatedSVG size={120} delay={1} />
-              </div>
               <div className="text-2xl text-accent font-bold relative z-10">02</div>
             </div>
             <div className="p-6">
@@ -95,9 +87,6 @@ const Projects = () => {
           
           <div className="animate-on-scroll bg-accent-dark border border-border-color hover:border-accent/50 transition-all duration-300 relative group overflow-hidden">
             <div className="h-32 bg-dark-bg border-b border-border-color flex items-center justify-center relative">
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700">
-                <GSAPAnimatedSVG size={120} delay={1.5} />
-              </div>
               <div className="text-2xl text-accent font-bold relative z-10">03</div>
             </div>
             <div className="p-6">

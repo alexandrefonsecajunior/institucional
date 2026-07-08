@@ -9,7 +9,6 @@ import {
   Skills,
   Projects,
   Contact,
-  AnimationsShowcase,
   Footer
 } from './components'
 
@@ -118,7 +117,6 @@ function App() {
         <AboutMe />
         <Skills />
         <Projects />
-        <AnimationsShowcase />
         <Contact />
       </main>
       

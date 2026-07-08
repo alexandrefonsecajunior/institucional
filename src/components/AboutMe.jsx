@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTranslation } from '../hooks/useTranslation'
 import AnimatedSVG from './AnimatedSVG'
-import GSAPAnimatedSVG from './GSAPAnimatedSVG'
 
 const AboutMe = () => {
   const { t } = useTranslation()
@@ -12,10 +11,6 @@ const AboutMe = () => {
       <div className="absolute top-16 right-8 opacity-5">
         <AnimatedSVG size={200} delay={0.8} />
       </div>
-      <div className="absolute bottom-16 left-8 opacity-8">
-        <GSAPAnimatedSVG size={180} delay={1.5} />
-      </div>
-      
       <div className="max-w-7xl mx-auto px-8">
         <h2 className="text-3xl md:text-4xl lg:text-5xl text-center mb-12 relative font-bold">
           {t('about.title')}

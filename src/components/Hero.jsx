@@ -1,7 +1,6 @@
 import React from 'react'
 import { useTranslation } from '../hooks/useTranslation'
 import AnimatedSVG from './AnimatedSVG'
-import GSAPAnimatedSVG from './GSAPAnimatedSVG'
 import LightRays from './effects/LightRays'
 import ParticleField from './effects/ParticleField'
 import EnergyScanner from './effects/EnergyScanner'
@@ -32,14 +31,6 @@ const Hero = () => {
       </div>
       <div className="absolute top-1/3 right-1/4 opacity-15 z-10">
         <AnimatedSVG size={60} delay={2} />
-      </div>
-      
-      {/* GSAP SVGs premium */}
-      <div className="absolute top-40 right-12 opacity-15 z-10">
-        <GSAPAnimatedSVG size={90} delay={1} />
-      </div>
-      <div className="absolute bottom-40 left-20 opacity-12 z-10">
-        <GSAPAnimatedSVG size={70} delay={2.5} />
       </div>
       
       <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-20">
