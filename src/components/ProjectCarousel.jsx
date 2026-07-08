@@ -17,13 +17,13 @@ const ProjectCarousel = ({ projects }) => {
   }
 
   return (
-    <div className="project-carousel w-full max-w-7xl mx-auto">
+    <div className="project-carousel w-full max-w-7xl mx-auto overflow-hidden">
       <Swiper
         effect="coverflow"
         grabCursor={true}
-        centeredSlides={true}
-        slidesPerView="auto"
-        spaceBetween={30}
+        centeredSlides={false}
+        slidesPerView={1}
+        spaceBetween={16}
         coverflowEffect={{
           rotate: 15,
           stretch: 0,
@@ -44,27 +44,30 @@ const ProjectCarousel = ({ projects }) => {
         className="modern-project-swiper"
         breakpoints={{
           320: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+            slidesPerView: 1,
+            centeredSlides: false,
+            spaceBetween: 16,
             effect: 'slide',
           },
           768: {
             slidesPerView: 'auto',
+            centeredSlides: true,
             spaceBetween: 30,
             effect: 'coverflow',
           },
           1024: {
-            slidesPerView: 2,
+            slidesPerView: 'auto',
+            centeredSlides: true,
             spaceBetween: 40,
             effect: 'coverflow',
           },
         }}
       >
         {projects.map((project) => (
-          <SwiperSlide key={project.id} className="w-80">
+          <SwiperSlide key={project.id} className="!w-full sm:!w-[22rem] lg:!w-80">
             <div className="bg-accent-dark border border-border-color hover:border-accent/50 transition-all duration-500 overflow-hidden">
               {/* Project Image */}
-              <div className="h-48 bg-darker-bg border-b border-border-color overflow-hidden">
+              <div className="h-44 sm:h-48 bg-darker-bg border-b border-border-color overflow-hidden">
                 {projectScreenshots[project.id] ? (
                   <img 
                     src={projectScreenshots[project.id]} 
@@ -90,7 +93,7 @@ const ProjectCarousel = ({ projects }) => {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
+              <div className="p-5 sm:p-6">
                 {/* Status Indicator */}
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
@@ -126,7 +129,7 @@ const ProjectCarousel = ({ projects }) => {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white font-semibold border border-accent hover:bg-accent/80 hover:shadow-lg transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-2 px-5 py-3 bg-accent text-white font-semibold border border-accent hover:bg-accent/80 hover:shadow-lg transition-all duration-300"
                 >
                   <span>Ver Projeto</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -138,22 +141,6 @@ const ProjectCarousel = ({ projects }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <div className="help-section">
-        <div className="help-content">
-          <div className="help-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M9,9a3,3 0 1,1 6,0c0,2 -3,3 -3,3"/>
-              <path d="M12 17h.01"/>
-            </svg>
-          </div>
-          <div className="help-text">
-            <h4>Need project screenshots?</h4>
-            <p>Use tools like ScreenshotOne API, Full Page Screen Capture, or browser DevTools to capture your websites.</p>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar fixed top-0 w-full bg-dark-bg/95 backdrop-blur-sm z-50 py-4 transition-all duration-300 border-b border-border-color/20">
-      <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         <a href="#home" className="flex items-center gap-3" aria-label="Ir para o início">
           <AFJLogoRays size={70} className="text-accent" />
         </a>

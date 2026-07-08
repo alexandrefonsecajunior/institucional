@@ -45,20 +45,20 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="py-24 bg-darker-bg relative overflow-hidden">
+    <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-darker-bg relative overflow-hidden">
       {/* SVG central dinâmico */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-5">
+      <div className="hidden sm:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-5">
         <PulseRotateSVG size={300} delay={1} />
       </div>
       
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl text-center mb-12 relative font-bold">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-10 sm:mb-12 relative font-bold">
           {t('projects.title')}
           <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-accent"></div>
         </h2>
 
         {/* Carousel de projetos reais */}
-        <div className="mb-16">
+        <div className="mb-8 sm:mb-16">
           <ProjectCarousel projects={projects} />
         </div>
 

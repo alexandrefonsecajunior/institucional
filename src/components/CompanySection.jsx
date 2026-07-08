@@ -26,21 +26,21 @@ const CompanySection = () => {
   ]
 
   return (
-    <section id="company" className="py-24 bg-dark-bg relative overflow-hidden border-y border-border-color/30">
-      <div className="absolute top-12 right-8 opacity-5">
+    <section id="company" className="py-16 sm:py-20 lg:py-24 bg-dark-bg relative overflow-hidden border-y border-border-color/30">
+      <div className="hidden sm:block absolute top-12 right-8 opacity-5">
         <AnimatedSVG size={180} delay={0.4} />
       </div>
-      <div className="max-w-7xl mx-auto px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-12 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-12 items-start">
           <div>
-            <span className="inline-flex mb-5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-accent border border-accent/40 bg-accent/10">
+            <span className="inline-flex mb-5 px-3 sm:px-4 py-2 text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.2em] text-accent border border-accent/40 bg-accent/10">
               {t('company.badge')}
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               {t('company.titlePrefix')}{' '}
               <span className="text-gradient">{companyInfo.publicName}</span>
             </h2>
-            <p className="mt-6 text-lg text-text-gray leading-relaxed">
+            <p className="mt-6 text-base sm:text-lg text-text-gray leading-relaxed">
               {t('company.description')}
             </p>
             <p className="mt-5 text-text-gray leading-relaxed">

@@ -6,24 +6,24 @@ const Skills = () => {
   const { t } = useTranslation()
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
       {/* SVGs decorativos animados */}
-      <div className="absolute top-16 left-12 opacity-10">
+      <div className="hidden sm:block absolute top-16 left-12 opacity-10">
         <PulseRotateSVG size={100} delay={0.5} />
       </div>
-      <div className="absolute bottom-20 right-8 opacity-8">
+      <div className="hidden sm:block absolute bottom-20 right-8 opacity-8">
         <PulseRotateSVG size={80} delay={1.2} />
       </div>
-      <div className="absolute top-1/2 left-8 opacity-6">
+      <div className="hidden lg:block absolute top-1/2 left-8 opacity-6">
         <PulseRotateSVG size={60} delay={2} />
       </div>
       
-      <div className="max-w-7xl mx-auto px-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl text-center mb-12 relative font-bold">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-10 sm:mb-12 relative font-bold">
           {t('skills.title')}
           <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-accent"></div>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           <div className="animate-on-scroll bg-accent-dark p-6 border border-border-color hover:border-accent/50 transition-all duration-300 relative group overflow-hidden">
             {/* SVG animado no hover */}
             <div className="absolute -top-2 -right-2 opacity-0 group-hover:opacity-20 transition-opacity duration-500">
@@ -73,4 +73,4 @@ const Skills = () => {
   )
 }
 
-export default Skills 
+export default Skills
