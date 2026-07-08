@@ -128,13 +128,6 @@ export const translations = {
       title: "Contato Oficial",
       description:
         "Fale com a AFJ Sistemas para assuntos comerciais, suporte, verificação da empresa ou novos projetos de software.",
-      form: {
-        name: "Seu Nome",
-        email: "Seu Email",
-        message: "Sua Mensagem",
-        send: "Enviar Mensagem",
-        successMessage: "Obrigado pela mensagem! Entrarei em contato em breve.",
-      },
     },
 
     // Footer
@@ -275,14 +268,6 @@ export const translations = {
       title: "Official Contact",
       description:
         "Contact AFJ Sistemas for business matters, support, company verification, or new software projects.",
-      form: {
-        name: "Your Name",
-        email: "Your Email",
-        message: "Your Message",
-        send: "Send Message",
-        successMessage:
-          "Thank you for your message! I will get back to you soon.",
-      },
     },
 
     // Footer

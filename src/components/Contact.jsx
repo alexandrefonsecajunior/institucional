@@ -1,24 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTranslation } from '../hooks/useTranslation'
 import { companyInfo } from '../config/company'
 import AnimatedSVG from './AnimatedSVG'
-import LoadingSVG from './LoadingSVG'
 
 const Contact = () => {
   const { t } = useTranslation()
-  const [formSubmitted, setFormSubmitted] = useState(false)
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault()
-    setFormSubmitted(true)
-    
-    // Mostrar SVG animado por 3 segundos
-    setTimeout(() => {
-      setFormSubmitted(false)
-      alert(t('contact.form.successMessage'))
-      e.target.reset()
-    }, 3000)
-  }
 
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
@@ -35,8 +21,8 @@ const Contact = () => {
           {t('contact.title')}
           <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-accent"></div>
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
-          <div>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center">
             <p className="text-lg text-text-gray mb-8 leading-relaxed">
               {t('contact.description')}
             </p>
@@ -55,52 +41,6 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <form className="space-y-4" onSubmit={handleFormSubmit}>
-            <div>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                placeholder={t('contact.form.name')} 
-                required 
-                className="w-full p-4 bg-accent-dark border border-border-color text-text-light focus:outline-none focus:border-accent transition-colors duration-300 placeholder-text-gray"
-              />
-            </div>
-            <div>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                placeholder={t('contact.form.email')} 
-                required 
-                className="w-full p-4 bg-accent-dark border border-border-color text-text-light focus:outline-none focus:border-accent transition-colors duration-300 placeholder-text-gray"
-              />
-            </div>
-            <div>
-              <textarea 
-                id="message" 
-                name="message" 
-                placeholder={t('contact.form.message')} 
-                rows="5" 
-                required 
-                className="w-full p-4 bg-accent-dark border border-border-color text-text-light focus:outline-none focus:border-accent transition-colors duration-300 placeholder-text-gray resize-none"
-              ></textarea>
-            </div>
-            <button 
-              type="submit" 
-              className="w-full px-8 py-4 bg-accent text-white font-semibold border border-accent hover:bg-accent/80 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
-              disabled={formSubmitted}
-            >
-              {formSubmitted ? (
-                <div className="flex items-center justify-center gap-3">
-                  <LoadingSVG size={20} className="text-white" />
-                  <span>Enviando...</span>
-                </div>
-              ) : (
-                t('contact.form.send')
-              )}
-            </button>
-          </form>
         </div>
       </div>
     </section>
